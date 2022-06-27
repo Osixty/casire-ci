@@ -35,8 +35,37 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index',['filter' => 'chain']);
 
+service('auth')->routes($routes);
+
+// $routes->presenter('admin/product',['filter' => 'chain']);
+// Equivalent to the following:
+$routes->group(
+    'admin',
+    [
+        'namespace' => 'App\Controllers\Admin',
+        'filter' => 'chain'
+    ],
+    static function ($routes) {
+        $routes->get('product/new', 'product::new');
+        $routes->post('product/create', 'product::create');
+        $routes->post('product', 'product::create');   // alias
+        $routes->get('product', 'product::index');
+        $routes->get('product/show/(:segment)', 'product::show/$1');
+        $routes->get('product/(:segment)', 'product::show/$1');  // alias
+        $routes->get('product/edit/(:segment)', 'product::edit/$1');
+        $routes->post('product/update/(:segment)', 'product::update/$1');
+        $routes->get('product/remove/(:segment)', 'product::remove/$1');
+        $routes->post('product/delete/(:segment)', 'product::delete/$1');
+
+        $routes->post('category', 'category::create');
+        $routes->get('category/ajaxid/(:segment)', 'category::get/$1');  
+        $routes->get('category', 'category::index');
+        $routes->post('category/ajaxList', 'category::ajaxList');
+        
+    }
+);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -8,7 +8,10 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-
+use CodeIgniter\Shield\Filters\SessionAuth;
+use CodeIgniter\Shield\Filters\TokenAuth;
+use CodeIgniter\Shield\Filters\ChainAuth;
+use CodeIgniter\Shield\Filters\AuthRates; //protect 
 class Filters extends BaseConfig
 {
     /**
@@ -23,6 +26,10 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'session'    => SessionAuth::class,
+        'tokens'     => TokenAuth::class,
+        'chain'      => ChainAuth::class,
+        'auth-rates' => AuthRates::class, //protect 
     ];
 
     /**
@@ -68,5 +75,11 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'auth-rates' => [
+            'before' => [
+                'login*', 'register', 'auth/*'
+            ]
+        ]
+    ];
 }
