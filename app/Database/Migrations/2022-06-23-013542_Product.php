@@ -65,7 +65,7 @@ class Product extends Migration
             'dsc'             => ['type' => 'text'],
             'img'             => ['type' => 'text'],
             'active'           => ['type' => 'tinyint', 'constraint' => 1, 'null' => 0, 'default' => 1],
-
+            'id_categories' => ['type' => 'int', 'constraint' => 11, 'unsigned' => true],
             'created_at'       => ['type' => 'datetime', 'null' => true],
             'updated_at'       => ['type' => 'datetime', 'null' => true],
             'deleted_at'       => ['type' => 'datetime', 'null' => true],
@@ -73,6 +73,7 @@ class Product extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('slug');
+        $this->forge->addForeignKey('id_categories', 'categories', 'id');
         $this->forge->createTable('products', true);
 
 
