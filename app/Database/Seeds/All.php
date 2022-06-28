@@ -8,6 +8,7 @@ class All extends Seeder
 {
     public function run()
     {
+        $this->call('Category');
         $this->call('Variants');
         $this->call('Produk');
     }
