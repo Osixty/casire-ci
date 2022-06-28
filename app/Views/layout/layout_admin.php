@@ -11,8 +11,9 @@
     <link href="<?= base_url() ?>/css/styles.css" rel="stylesheet" />
 
     <link href="<?= base_url() ?>/vendors/fontawesame/css/all.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="<?= base_url() ?>/vendors/bootbox/bootbox.all.min.js"></script>
-  
+    <link href="<?= base_url() ?>/vendors/jquery-confirm/css/jquery-confirm.css" rel="stylesheet" />
+   
+    
     <?= $this->renderSection('pageStyles') ?>
     
    
@@ -38,6 +39,8 @@
     </div>
 
 
+    <script src="<?= base_url() ?>/vendors/jquery-confirm/js/jquery-confirm.js"></script>
+ 
 
 
  
@@ -48,7 +51,6 @@
     <!-- Font Awesome -->
     <!-- <script type="text/javascript" src="<?= base_url() ?>/vendors/fontawesame/js/all.js"></script>
    --> <!-- Custom scripts -->
-   
 
     <script src="<?= base_url() ?>/js/scripts.js"></script>
     <?= $this->renderSection('pageScripts') ?>

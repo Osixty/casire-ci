@@ -89,18 +89,6 @@
 </div>
 
 
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="...">
-        <strong class="me-auto">Bootstrap</strong>
-        <small>11 mins ago</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-        Hello, world! This is a toast message.
-    </div>
-</div>
-
 <?= $this->endSection() ?>
 
 <?= $this->Section('pageScripts') ?>
@@ -133,6 +121,7 @@
         categoryaddModal = $('#categoryaddModal');
         categoryaddModal.on("hidden.bs.modal", function() {
             $('#form_add')[0].reset();
+            $("#form_add input[name='name']").removeClass('is-invalid')
         });
 
         function relo(e) {
@@ -152,23 +141,45 @@
                 data: form.serialize(),
                 statusCode: {
                     201: function() {
-                        alert("berhasil");
+                        $.alert({
+                            title: 'Alert!',
+                            content: 'berhasil',
+                        });
                         categoryaddModal.modal('toggle');
                         table.ajax.reload();
                     },
                     404: function() {
-                        alert("page not found");
+                        $.alert({
+                            title: 'Error',
+                            icon: 'fa fa-warning',
+                            type: 'orange',
+                            content: 'page not found',
+                        });
                     },
                     400: function(e) {
-
                         if (e.responseJSON.messages.name) {
-                            alert(e.responseJSON.messages.name);
-                            $("#form_add input[name='name']").focus()
+                            $.confirm({
+                                title: 'Error',
+                                icon: 'fa fa-warning',
+                                content: e.responseJSON.messages.name,
+                                buttons: {
+                                    Ok: function() {
+                                        $("#form_add input[name='name']").focus()
+                                        $("#form_add input[name='name']").addClass('is-invalid')
+                                    },
+                                }
+                            });
+
                         };
 
                     },
                     500: function(e) {
-                        alert("server dalam perbaikan");
+                        $.alert({
+                            title: 'Error',
+                            icon: 'fa fa-warning',
+                            type: 'orange',
+                            content: "server dalam perbaikan",
+                        });
                     }
                 }
             }).always(function() {
@@ -180,11 +191,26 @@
 
 
     });
-   
-  //  alert.close()
+
     function delc(i) {
-        dte(i);
-      
+        $.confirm({
+            title: 'Delete category?',
+            content: 'Apakah anda yakin akan menghapus ini',
+            autoClose: 'Batal|8000',
+            buttons: {
+                delete: {
+                    text: 'Hapus',
+                    action: function() {
+                        $.alert('Deleted the user!');
+                    }
+                },
+                Batal:  {
+                   
+                    btnClass: 'btn-warning'
+                }
+            }
+        });
+
     }
 
 
@@ -202,13 +228,11 @@
 
             })
             .fail(function(data) {
-               alert({
+                $.alert({
                     title: 'Apa yang salah?',
                     content: 'terjadi kesalahan mungkin',
                 });
             });
     }
-
-   
 </script>
 <?= $this->endSection() ?>
