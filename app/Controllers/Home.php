@@ -10,4 +10,8 @@ class Home extends BaseController
         return view('/dashboard/home', $data);
       
     }
+    public function casir()
+    {
+        return view('/user/home');
+    }
 }
