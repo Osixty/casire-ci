@@ -12,6 +12,7 @@ class Home extends BaseController
     }
     public function casir()
     {
-        return view('/user/home');
+        $data['menu'] = "menu";
+        return view('/user/home', $data);
     }
 }
