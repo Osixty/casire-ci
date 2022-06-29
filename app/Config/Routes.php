@@ -35,8 +35,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index',['filter' => 'chain']);
+$routes->get('/', 'Home::index', ['filter' => 'chain']);
 $routes->get('/casier', 'Home::casir');
+$routes->get('/checkout', 'Home::checkout');
 
 service('auth')->routes($routes);
 
@@ -61,10 +62,9 @@ $routes->group(
         $routes->post('product/delete/(:segment)', 'product::delete/$1');
 
         $routes->post('category', 'category::create');
-        $routes->get('category/ajaxid/(:segment)', 'category::get/$1');  
+        $routes->get('category/ajaxid/(:segment)', 'category::get/$1');
         $routes->get('category', 'category::index');
         $routes->post('category/ajaxList', 'category::ajaxList');
-        
     }
 );
 /*
