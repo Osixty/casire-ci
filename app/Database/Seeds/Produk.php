@@ -16,11 +16,11 @@ class Produk extends Seeder
             $nama=$faker->sentence(3);
             $data = [
                 'id' => $id,
-                'nama'            => $nama,
+                'name'            => $nama,
                 'slug'             => $this->slugify($nama),
                 'dsc'             => $faker->paragraph(),
                 'img'             => $faker->imageUrl(640, 480, 'animals', true),
-
+                'id_categories' =>  $faker->numberBetween(1, 2)
             ];
             $this->db->table('products')->insert($data);
          
