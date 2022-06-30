@@ -67,11 +67,50 @@ class Category extends BaseController
     }
     public function update($id = null)
     {
-        //
+        $model = new CategoryModel();
+        if (!$model->find($id)) {
+            return $this->fail(['id' => "$id tidak ditemukan atau sudah dihapus"]);
+        }
+        /*    $json = $this->request->getJSON();
+        if ($json) {
+            $data = [
+                'name' => $json->name,
+                'dsc' => $json->dsc,
+                'active' => (isset($json->active)) ? '1' : '0',
+            ];
+        } else {
+            $input = $this->request->getRawInput();
+            $data = [
+                'name' => $input['name'],
+                'dsc' => $input['dsc'],
+                'active' => (isset($input['active'])) ? '1' : '0',
+            ];
+        } */
+        $input = $this->request->getRawInput();
+        $data = [
+            'dsc' => $input['dsc'],
+            'active' => (isset($input['active'])) ? true : false,
+        ];
+        if ($input['name'] != $input['name_old']) {
+            $data['name'] = $input['name'];
+        }
+        if (!$model->update($id, $data)) {
+            return $this->fail($model->errors());
+        } else {
+            return $this->respondCreated();
+        }
     }
     public function delete($id = null)
     {
-        //
+        $model = new CategoryModel();
+        if (!$model->find($id)) {
+            return $this->fail(['id' => "$id tidak ditemukan atau sudah dihapus"]);
+        }
+        if (!$model->delete($id)) {
+            return $this->fail($model->errors());
+        } else {
+            return $this->respondDeleted();
+        }
     }
     public function ajaxList()
     {
@@ -90,7 +129,7 @@ class Category extends BaseController
                 $row[] = $list['name'];
                 $row[] = $list['dsc'];
                 $row[] = ($list['active']) ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>';
-                $row[] = '<button type="button" onclick="editc(' . $list['id'] . ')" class="btn btn-info text-white btn-sm"><i class="fa-solid fa-pencil"></i></button>
+                $row[] = '<button type="button" onclick="editc(' . $list['id'] . ')" class="btn btn-warning text-white btn-sm"><i class="fa-solid fa-pencil"></i></button>
                 <button type="button" onclick="delc(' . $list['id'] . ')" class="btn btn-danger btn-sm mx-1"><i class="fa-solid fa-trash-can"></i></button>';
                 $data[] = $row;
             }

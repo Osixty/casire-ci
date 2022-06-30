@@ -60,11 +60,17 @@ $routes->group(
         $routes->post('product/update/(:segment)', 'product::update/$1');
         $routes->get('product/remove/(:segment)', 'product::remove/$1');
         $routes->post('product/delete/(:segment)', 'product::delete/$1');
-
-        $routes->post('category', 'category::create');
+        /*  product */
+        $routes->post('product/ajaxList', 'product::ajaxList');
+        /*  product end */
+        /* category */
         $routes->get('category/ajaxid/(:segment)', 'category::get/$1');
         $routes->get('category', 'category::index');
         $routes->post('category/ajaxList', 'category::ajaxList');
+        $routes->post('category', 'category::create');
+        $routes->post('category/delete/(:segment)', 'category::delete/$1');
+        $routes->post('category/update/(:segment)', 'category::update/$1');
+        /* category end */
     }
 );
 /*
