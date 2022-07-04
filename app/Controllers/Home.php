@@ -16,6 +16,11 @@ class Home extends BaseController
     }
     public function checkout()
     {
-        return view('user/checkout');
+        $data['email'] = "email";
+        return view('user/checkout', $data);
+    }
+    public function cart()
+    {
+        return view('user/cart');
     }
 }
