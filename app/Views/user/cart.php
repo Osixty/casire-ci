@@ -11,6 +11,7 @@
         </div>
         <div class="row">
             <div class="col-lg-7 col-md-12 col-sm-12">
+                <!-- product view -->
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <img src="image/grey.png" class="img-fluid" alt="">
@@ -64,14 +65,14 @@
                 </div>
                 <div class="row mb-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <input class="form-check-input" type="checkbox">
                         <label class="form-check-label" for="gridCheck">
                             I Agree with the Terms & Conditions
                         </label>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <a href="" class="btn btn-dark col-lg-12 col-md-12">Checkout</a>
+                    <a href="/checkout" class="btn btn-dark col-lg-12 col-md-12">Checkout</a>
                 </div>
                 <div>
                     <a href="" class="linkshop">Continue shopping</a>
