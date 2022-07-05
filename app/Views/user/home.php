@@ -3,10 +3,10 @@
 <?= $this->section('title') ?>Casir<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="container-fluid mt-4" >
-<div class="main-carousel"  data-flickity='{ "wrapAround": true }'>
-    <img src="/image/cw.png" class="d-block w-100" alt="...">
-    <img src="/image/luak.png" class="d-block w-100" alt="...">
-    <img src="/image/jahe.png" class="d-block w-100" alt="...">
+<div class="main-carousel"  data-flickity>
+    <img src="<?= base_url();?>/image/cw.png" class="d-block w-50" alt="...">
+    <img src="/image/luak.png" class="d-block w-50" alt="...">
+    <img src="/image/jahe.png" class="d-block w-50" alt="...">
 </div>
 </div>
 
