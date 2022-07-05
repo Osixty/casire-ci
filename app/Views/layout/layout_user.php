@@ -17,6 +17,7 @@
 
 <body>
     <!-- navbar component -->
+<<<<<<< HEAD
     <?= $this->include('/user/component/navbar') ?>
 
     <!-- sidebar component -->
@@ -25,6 +26,16 @@
         <div class="container-fluid px-4">
             <?= $this->renderSection('main') ?>
 
+=======
+    <!-- sidebar component -->
+
+    <div id="layoutSidenav">
+        <?= $this->renderSection('main') ?>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <!-- <div class="container px-4"> -->
+>>>>>>> 466078dad87165bfd6a9e247553b95c5b787d731
         </div>
     </main>
 
@@ -39,12 +50,17 @@
     <script type="text/javascript" src="<?= base_url() ?>/vendors/popper/popper.min.js"></script>
 
     <!-- Font Awesome -->
+<<<<<<< HEAD
     <script type="text/javascript" src="<?= base_url() ?>/vendors/fontawesame/js/all.js"></script>  
     <!-- Custom scripts -->
     
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>/js/flickity.pkgd.js"></script>
 
+=======
+    <!-- <script type="text/javascript" src="<?= base_url() ?>/vendors/fontawesame/js/all.js"></script>
+   -->
+>>>>>>> 466078dad87165bfd6a9e247553b95c5b787d731
     <!-- Custom scripts -->
 
 

@@ -26,7 +26,12 @@
   <div class="card mb-4">
     <div class="card-header">
       <i class="fas fa-table me-1"></i>
-      DataTable Example
+      Data Product
+      <div class="float-end">
+        <a class="btn btn-success" href="<?= base_url() ?>/admin/product/new">
+          <i class="fa-solid fa-plus"></i> Product
+        </a>
+      </div>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -35,14 +40,13 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Category</th>
+              <th>Stock</th>
+              <th>sold</th>
+              <th>Action</th>
             </tr>
           </thead>
-        
+
           <tbody>
 
           </tbody>
@@ -55,5 +59,28 @@
 <?= $this->endSection() ?>
 
 <?= $this->Section('pageScripts') ?>
-<script src="<?= base_url() ?>/js/product.js"></script>
+<script>
+  $(document).ready(function() {
+    table = $('#datatablesProduk').DataTable({
+      "processing": true, //Feature control the processing indicator.
+      "serverSide": true, //Feature control DataTables' server-side processing mode.
+      "order": [], //Initial no order.
+      "info": false,
+      // Load data for the table's content from an Ajax source
+      "ajax": {
+        "url": "<?php echo site_url('admin/product/ajaxList') ?>",
+        "type": "POST",
+        "data": function(data) {
+          //   data.keadaan = $('input:radio[name="keadaan"]:checked').val();
+        }
+      },
+
+      //Set column definition initialisation properties.
+      "columnDefs": [{
+        "targets": [2, 3, 4], //first column / numbering column
+        "orderable": false, //set not orderable
+      }, ],
+    });
+  });
+</script>
 <?= $this->endSection() ?>

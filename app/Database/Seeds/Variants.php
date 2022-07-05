@@ -19,14 +19,9 @@ class Variants extends Seeder
                 'hex'               => '#ffffff',
                 'id_variant_option' => 1
             ], [
-                'value'             => 'Putih',
-                'dsc'               => 'White',
-                'hex'               => '#ffffff',
-                'id_variant_option' => 1
-            ], [
                 'value'             => 'Hitam',
                 'dsc'               => 'Black',
-                'hex'               => '#ffffff',
+                'hex'               => '#000000',
                 'id_variant_option' => 1
             ], [
                 'value'             => 'Biru',

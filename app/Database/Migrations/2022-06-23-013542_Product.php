@@ -60,7 +60,7 @@ class Product extends Migration
         /*  products */
         $this->forge->addField([
             'id'              => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
-            'nama'            => ['type' => 'varchar', 'constraint' => 255],
+            'name'            => ['type' => 'varchar', 'constraint' => 255],
             'slug'             => ['type' => 'varchar', 'constraint' => 255],
             'dsc'             => ['type' => 'text'],
             'img'             => ['type' => 'text'],

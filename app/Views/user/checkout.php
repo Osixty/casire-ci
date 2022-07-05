@@ -7,15 +7,15 @@
         <div class="row my-5">
             <div class="col-lg col-md-12 ">
                 <form>
-                    <div class="mb-3 ">
+                    <div class="col mb-3 ">
                         <h3>Contact Information</h3>
-                        <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp" value=" <?= $email ?> ">
                     </div>
-                    <div class="mb-3 form-check">
+                    <div class="col mb-3 form-check">
                         <input type="checkbox" class="form-check-input">
                         <label class="form-check-label" for="exampleCheck"> Email me with news and offers</label>
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <div class="row">
                             <div class="col-lg col-md col-sm-12 mb-3">
                                 <input type="text" class="form-control" placeholder="First name" aria-label="First name">
@@ -25,16 +25,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <input class="form-control" placeholder="Alamat">
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <input class="form-control" placeholder="Kecamatan">
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <input class="form-control" placeholder="Kota">
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <div class="row">
                             <div class="col-lg col-md col-sm-12 mb-3">
                                 <select class="form-select" aria-label="Default select example">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <input class="form-control" placeholder="Phone Number">
                     </div>
                     <a href="" class="btn btn-dark">Continue to shopping</a>
@@ -77,6 +77,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="mb-3">
                         <label>Subtotal</label>
                     </div>

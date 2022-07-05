@@ -14,40 +14,35 @@ More information about the plans for version 4 can be found in [the announcement
 The user guide corresponding to this version of the framework can be found
 [here](https://codeigniter4.github.io/userguide/).
 
-## Installation & updates
+## Installation
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Use these steps to create a local installation for development and testing.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+1. Clone the repo: `git clone https://github.com/Osixty/casire-ci.git`
+2. Work in the repo directory: `cd casire-ci`
+3. Make sure the **writable** folder is accessible: `chmod -R 777 writable` (linux)
+4. Install dependencies: `composer install`
+5. Create your **.env** file: `cp env .env`
+6. Edit **.env** and set at least the following:
+	* `CI_ENVIRONMENT = development`		
+    * `database.default.hostname = localhost`
+    * `database.default.database = [namadatabase]`
+    * `database.default.username = [user anda]`
+    * `database.default.password = [password] `
+    * `database.default.DBDriver = MySQLi`
 
-## Setup
+The website is intended to live on the same server as the forums, and uses the forum
+database to pull in the most recent posts. When developing locally, this poses a challenge.
+To make local development simpler, a migration and seed have been provided to setup a 
+table with some mock data that can be used in place of having a local MyBB install.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+1. Migrate the database: `php spark migrate -all`
+2. Run the seeder: `php spark db:seed All`
 
-## Important Change with index.php
+At this point you should have a usable version of the current code! Try launching it locally:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
+1. From the repo directory start serving the website: `php spark serve`
+2. In your web browser of choice navigate to the local URL: `http://localhost:8080`
 ## Server Requirements
 
 PHP version 7.4 or higher is required, with the following extensions installed:
