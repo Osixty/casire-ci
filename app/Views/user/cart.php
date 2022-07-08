@@ -32,8 +32,6 @@
                             <input type="text" value="1">
                             <span class="up" onClick='increaseCount(event, this)'>+</span>
                         </div>
-                        <!-- Js Counter -->
-                        <script type="text/javascript" src="<?= base_url() ?>/js/counter.js"></script>
                         <div class="row">
                             <h4>
                                 <strong>Total :</strong>
@@ -81,5 +79,9 @@
         </div>
     </div>
 </div>
+
+
+<!-- Custom scripts -->
+<script type="text/javascript" src="<?= base_url() ?>/js/counter.js"></script>
 
 <?= $this->endSection() ?>
