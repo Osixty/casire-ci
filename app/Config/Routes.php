@@ -39,6 +39,7 @@ $routes->get('/', 'Home::index', ['filter' => 'chain']);
 $routes->get('/casier', 'Home::casir');
 $routes->get('/checkout', 'Home::checkout');
 $routes->get('/cart', 'Home::cart');
+$routes->get('/category', 'Home::category');
 
 service('auth')->routes($routes);
 

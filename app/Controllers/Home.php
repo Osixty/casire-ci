@@ -23,4 +23,9 @@ class Home extends BaseController
     {
         return view('user/cart');
     }
+    public function category()
+    {
+        $data['menu'] = "category";
+        return view('user/category');
+    }
 }
