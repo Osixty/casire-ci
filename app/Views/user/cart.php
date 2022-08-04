@@ -73,7 +73,7 @@
                     <a href="/checkout" class="btn btn-dark col-lg-12 col-md-12">Checkout</a>
                 </div>
                 <div>
-                    <a href="" class="linkshop">Continue shopping</a>
+                    <a href="/casier" class="linkshop">Continue shopping</a>
                 </div>
             </div>
         </div>
