@@ -73,7 +73,11 @@
                     <a href="/checkout" class="btn btn-dark col-lg-12 col-md-12">Checkout</a>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <a href="<?php echo site_url('/casier') ?>" class="linkshop">Continue shopping</a>
+=======
+                    <a href="/casier" class="linkshop">Continue shopping</a>
+>>>>>>> 21689769486dabfd280729db5e2a459744f696be
                 </div>
             </div>
         </div>

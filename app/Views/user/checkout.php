@@ -13,60 +13,24 @@
                             <h3>Contact Information</h3>
                         </div>
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp" value=" <?= $email ?> ">
-                        </div>
-                    </div>
-                    <div class="col mb-3 form-check">
-                        <input type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="exampleCheck"> Email me with news and offers</label>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="row">
-                            <div class="col-lg col-md col-sm-12 mb-3">
-                                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                            </div>
-                            <div class="col-lg col-md col-sm-12">
-                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                            </div>
+                            <input type="email" class="form-control" placeholder="Email" aria-describedby="emailHelp">
                         </div>
                     </div>
                     <div class="col mb-3">
-                        <input class="form-control" placeholder="Alamat">
+                        <input class="form-control" placeholder="Nama">
                     </div>
                     <div class="col mb-3">
-                        <input class="form-control" placeholder="Kecamatan">
+                        <input class="form-control" placeholder="Nomor telepon">
                     </div>
                     <div class="col mb-3">
-                        <input class="form-control" placeholder="Kota">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Opsi pembayaran</option>
+                            <option value="1">Tunai</option>
+                            <option value="2">Transfer bank</option>
+                            <option value="3">QR code</option>
+                        </select>
                     </div>
-                    <div class="col mb-3">
-                        <div class="row">
-                            <div class="col-lg col-md col-sm-12 mb-3">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Province</option>
-                                    <option>Aceh</option>
-                                    <option>Bali</option>
-                                    <option>Bangka belitung</option>
-                                    <option>Banten</option>
-                                    <option>Bengkulu</option>
-                                    <option>Jawa barat</option>
-                                    <option>Jawa tengah</option>
-                                    <option>Jawa timur</option>
-                                    <option>Kalimantan barat</option>
-                                    <option>Kalimantan tengah</option>
-                                    <option>Kalimantan timur</option>
-                                    <option>Kalimantan selatan</option>
-                                </select>
-                            </div>
-                            <div class="col-lg col-md col-sm-12">
-                                <input class="form-control" placeholder="Postal code">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <input class="form-control" placeholder="Phone Number">
-                    </div>
-                    <a href="" class="btn btn-dark mb-3">Continue to shopping</a>
+                    <a href="/casier" class="btn btn-dark mb-3">Submit</a>
                 </form>
             </div>
 
@@ -113,10 +77,10 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col pname">
-                            <label>Shippingl</label>
+                            <label>Discount</label>
                         </div>
-                        <div class="col harga2">
-                            <label>Rp. 19.000</label>
+                        <div class="col harga2 fw-bold">
+                            <label>15%</label>
                         </div>
                     </div>
                     <div class="row mb-3">
