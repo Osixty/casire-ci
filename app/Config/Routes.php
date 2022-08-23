@@ -41,6 +41,7 @@ $routes->get('/checkout', 'Home::checkout');
 $routes->get('/cart', 'Home::cart');
 $routes->get('/category', 'Home::category');
 
+
 service('auth')->routes($routes);
 
 // $routes->presenter('admin/product',['filter' => 'chain']);
@@ -63,7 +64,7 @@ $routes->group(
         $routes->get('product/remove/(:segment)', 'product::remove/$1');
         $routes->post('product/delete/(:segment)', 'product::delete/$1');
         /*  product */
-        $routes->post('product/ajaxList', 'product::ajaxList');
+        // $routes->post('product/ajaxList', 'product::ajaxList');
         /*  product end */
         /* category */
         $routes->get('category/ajaxid/(:segment)', 'category::get/$1');
@@ -72,6 +73,20 @@ $routes->group(
         $routes->post('category', 'category::create');
         $routes->post('category/delete/(:segment)', 'category::delete/$1');
         $routes->post('category/update/(:segment)', 'category::update/$1');
+        /* category end */
+    }
+);
+$routes->group(
+    'user', 
+    [
+        'namespace' => 'App\Controllers\User',
+    ],
+    static function ($routes) {
+        /*  product */
+        $routes->post('ajaxList', 'Casir::ajaxList');
+        /*  product end */
+        /* category */
+        
         /* category end */
     }
 );
