@@ -64,7 +64,7 @@ $routes->group(
         $routes->get('product/remove/(:segment)', 'product::remove/$1');
         $routes->post('product/delete/(:segment)', 'product::delete/$1');
         /*  product */
-        // $routes->post('product/ajaxList', 'product::ajaxList');
+        $routes->post('product/ajaxList', 'product::ajaxList');
         /*  product end */
         /* category */
         $routes->get('category/ajaxid/(:segment)', 'category::get/$1');
